@@ -1,6 +1,6 @@
 {
 	"name": "web",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"type": "module",
 	"private": true,
 	"scripts": {
@@ -12,7 +12,7 @@
 	},
 	"dependencies": {
 		"@repo/ui": "workspace:*",
-		"@repo/slides": "workspace:*",
+		"presivio": "workspace:*",
 		"@tailwindcss/postcss": "4.1.11",
 		"next": "15.3.4",
 		"postcss": "8.5.6",

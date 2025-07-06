@@ -1,5 +1,0 @@
----
-"presivio": major
----
-
-first release
