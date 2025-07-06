@@ -1,7 +1,7 @@
 "use client";
 
 import { unstable_ViewTransition as UnstableViewTransition } from "react";
-import { useSlidesContext } from "../providers/slides";
+import { useSlidesContext } from "../providers/slides-provider";
 
 export function ViewTransition({
 	children,

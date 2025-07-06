@@ -4,19 +4,25 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 import { type Slide, useSlides } from "../stores/slides.store";
-import { SlidesProvider } from "../providers/slides";
+import { SlidesProvider } from "../providers/slides-provider";
+import { useFullScreen } from "../hooks/useFullScreen";
 
-export function Slides({ components }: { components: Slide[] }) {
-	const { setSlides, slides } = useSlides();
+export function SlidesPreview({ components }: { components: Slide[] }) {
+	const { slides } = useSlides();
+	const { isFullScreen } = useFullScreen();
 
 	useEffect(() => {
-		setSlides(components);
+		useSlides.setState({ slides: components });
 	}, [components]);
+
+	if (isFullScreen) {
+		return null;
+	}
 
 	return (
 		<SlidesProvider>
-			<div className="h-dvh overflow-y-auto">
-				{slides.map((slide, index) => (
+			<aside className="h-dvh overflow-y-auto">
+				{slides?.map((slide, index) => (
 					<Link
 						href={`/${index + 1}`}
 						key={slide.name}
@@ -26,7 +32,7 @@ export function Slides({ components }: { components: Slide[] }) {
 						<small>{index + 1}</small>
 					</Link>
 				))}
-			</div>
+			</aside>
 		</SlidesProvider>
 	);
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useSlidesContext } from "../providers/slides";
+import { useSlidesContext } from "../providers/slides-provider";
 
 export function Slide({ children }: { children: React.ReactNode }) {
 	const slidesContext = useSlidesContext();

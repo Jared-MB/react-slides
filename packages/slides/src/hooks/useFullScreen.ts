@@ -1,17 +1,9 @@
 "use client";
 
-import { useContext } from "react";
-
-import { ScreenContext } from "../providers/screen";
+import { useScreenStore } from "../stores/screen.store";
 
 export function useFullScreen() {
-	const context = useContext(ScreenContext);
-
-	if (!context) {
-		throw new Error("Screen not found");
-	}
-
-	const { screen, setIsFullScreen, isFullScreen } = context;
+	const { isFullScreen, setIsFullScreen, screen } = useScreenStore();
 
 	const setFullScreen = () => {
 		const element = screen?.current;
@@ -20,9 +12,8 @@ export function useFullScreen() {
 			return;
 		}
 
-		if (element.requestFullscreen) {
-			element.requestFullscreen();
-			setIsFullScreen(true);
+		if (document.body.requestFullscreen) {
+			document.body.requestFullscreen();
 		}
 	};
 
@@ -33,7 +24,6 @@ export function useFullScreen() {
 
 		if (document.exitFullscreen) {
 			document.exitFullscreen();
-			setIsFullScreen(false);
 		}
 	};
 
@@ -41,5 +31,7 @@ export function useFullScreen() {
 		setFullScreen,
 		exitFullScreen,
 		isFullScreen,
+		setIsFullScreen,
+		screen,
 	};
 }

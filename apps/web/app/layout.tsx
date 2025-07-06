@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Slides } from "@repo/slides";
+import { Presentation } from "@repo/slides";
 import { slides } from "./slides";
 
 const geistSans = localFont({
@@ -26,10 +26,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} font-sans h-screen grid grid-cols-[25%_1fr]`}
+				className={`${geistSans.variable} ${geistMono.variable} font-sans h-screen`}
 			>
-				<Slides components={slides} />
-				{children}
+				<Presentation slides={slides}>{children}</Presentation>
 			</body>
 		</html>
 	);

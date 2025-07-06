@@ -1,68 +1,60 @@
-import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
+"use client";
+
+import { ChevronLeft, ChevronRight, Expand, Shrink } from "lucide-react";
 import { useFullScreen } from "../hooks/useFullScreen";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSlides } from "../stores/slides.store";
+import { ViewTransition } from "./view-transition";
 
 export function SetFullScreen() {
-	const { setFullScreen } = useFullScreen();
+	const { setFullScreen, exitFullScreen, isFullScreen } = useFullScreen();
 
 	return (
 		<button
 			type="button"
-			onClick={setFullScreen}
+			onClick={isFullScreen ? exitFullScreen : setFullScreen}
 			className="cursor-pointer"
-			title="Set full screen"
-			aria-label="Set full screen"
+			title={isFullScreen ? "Exit full screen" : "Set full screen"}
+			aria-label={isFullScreen ? "Exit full screen" : "Set full screen"}
 			tabIndex={3}
 		>
-			<Expand />
+			<ViewTransition name="full-screen">
+				{isFullScreen ? <Shrink /> : <Expand />}
+			</ViewTransition>
 		</button>
 	);
 }
 
-export function MoveOnSlides({
-	currentSlide,
-	totalSlides,
-}: {
-	currentSlide: number;
-	totalSlides: number;
-}) {
+export function MoveOnSlides() {
+	const params = useParams();
 	const router = useRouter();
-	const { isFullScreen } = useFullScreen();
-	const { setCurrentSlideInFullScreen } = useSlides();
+	const { slides } = useSlides();
+
+	const totalSlides = slides.length;
+	const currentSlide = Number(params.slide);
 
 	const canMoveForward = currentSlide < totalSlides;
 	const canMoveBack = currentSlide > 1;
 
 	const goBack = () => {
 		if (!canMoveBack) return;
-
-		if (isFullScreen) {
-			setCurrentSlideInFullScreen(currentSlide - 1);
-		} else {
-			router.replace(`/${currentSlide - 1}`);
-		}
+		router.replace(`/${currentSlide - 1}`);
 	};
 
 	const goForward = () => {
+		console.log({ currentSlide, totalSlides });
 		if (!canMoveForward) return;
-
-		if (isFullScreen) {
-			setCurrentSlideInFullScreen(currentSlide + 1);
-		} else {
-			router.replace(`/${currentSlide + 1}`);
-		}
+		router.replace(`/${currentSlide + 1}`);
 	};
 
 	useEffect(() => {
 		const keydownHandler = (event: KeyboardEvent) => {
+			console.log(event.key);
 			if (event.key === "ArrowLeft") {
 				goBack();
-				event.preventDefault();
 			} else if (event.key === "ArrowRight") {
 				goForward();
-				event.preventDefault();
 			}
 		};
 
@@ -71,7 +63,7 @@ export function MoveOnSlides({
 		return () => {
 			document.removeEventListener("keydown", keydownHandler);
 		};
-	}, [isFullScreen]);
+	}, []);
 
 	return (
 		<div className="flex items-center gap-1">
