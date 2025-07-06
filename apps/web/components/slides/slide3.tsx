@@ -1,6 +1,6 @@
 "use client";
 
-import { Slide, ViewTransition } from "@repo/slides";
+import { Slide, ViewTransition } from "presivio";
 import { useState } from "react";
 
 export function Slide3() {

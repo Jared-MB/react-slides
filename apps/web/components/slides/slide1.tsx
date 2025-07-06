@@ -1,4 +1,4 @@
-import { Slide, ViewTransition } from "@repo/slides";
+import { Slide, ViewTransition } from "presivio";
 
 export function Slide1() {
 	return (

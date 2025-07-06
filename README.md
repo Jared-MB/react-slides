@@ -14,7 +14,7 @@ A modern presentation framework for developers who love React. Create beautiful,
 
 This monorepo contains the following packages:
 
-### `@repo/slides`
+### `presivio`
 The core slides package containing React components and utilities for creating presentations.
 
 ### `apps/web`

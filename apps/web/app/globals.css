@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "../node_modules/@repo/slides";
+@source "../node_modules/presivio";
 
 @theme inline {
 	--font-sans: var(--font-geist-sans);

@@ -1,3 +1,5 @@
+"use client";
+
 export { Slide } from "./components/slide";
 export { ViewTransition } from "./components/view-transition";
 export { Screen } from "./components/screen";

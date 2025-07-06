@@ -1,4 +1,4 @@
-import { Slide, ViewTransition } from "@repo/slides";
+import { Slide, ViewTransition } from "presivio";
 import { Slide1 } from "@/components/slides/slide1";
 import { Slide2 } from "@/components/slides/slide2";
 import { Slide3 } from "@/components/slides/slide3";
