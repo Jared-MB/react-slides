@@ -1,9 +1,10 @@
 "use client";
 
-import type { Slide } from "../stores/slides.store";
+import { useSlides, type Slide } from "../stores/slides.store";
 
 import { useFullScreen } from "../hooks/useFullScreen";
 import { SlidesPreview } from "./slides-preview";
+import { useEffect } from "react";
 
 export function Presentation({
 	children,
@@ -13,12 +14,17 @@ export function Presentation({
 	slides: Slide[];
 }) {
 	const { isFullScreen } = useFullScreen();
+	const { setSlides } = useSlides();
+
+	useEffect(() => {
+		setSlides(slides);
+	}, [slides]);
 
 	return (
 		<div
 			className={`grid ${isFullScreen ? "grid-cols-1" : "grid-cols-[25%_1fr]"}`}
 		>
-			<SlidesPreview components={slides} />
+			<SlidesPreview />
 			{children}
 		</div>
 	);

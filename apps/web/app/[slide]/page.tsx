@@ -1,5 +1,5 @@
-import { CurrentSlide } from "@repo/slides";
+import { Screen } from "@repo/slides";
 
 export default function SlidePage() {
-	return <CurrentSlide />;
+	return <Screen />;
 }

@@ -1,19 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
 
-import { type Slide, useSlides } from "../stores/slides.store";
+import { useSlides } from "../stores/slides.store";
 import { SlidesProvider } from "../providers/slides-provider";
 import { useFullScreen } from "../hooks/useFullScreen";
 
-export function SlidesPreview({ components }: { components: Slide[] }) {
+export function SlidesPreview() {
 	const { slides } = useSlides();
 	const { isFullScreen } = useFullScreen();
-
-	useEffect(() => {
-		useSlides.setState({ slides: components });
-	}, [components]);
 
 	if (isFullScreen) {
 		return null;

@@ -3,12 +3,10 @@
 import { useScreenStore } from "../stores/screen.store";
 
 export function useFullScreen() {
-	const { isFullScreen, setIsFullScreen, screen } = useScreenStore();
+	const { isFullScreen, setIsFullScreen } = useScreenStore();
 
 	const setFullScreen = () => {
-		const element = screen?.current;
-
-		if (!element) {
+		if (typeof document === "undefined") {
 			return;
 		}
 
@@ -32,6 +30,5 @@ export function useFullScreen() {
 		exitFullScreen,
 		isFullScreen,
 		setIsFullScreen,
-		screen,
 	};
 }
