@@ -1,135 +1,65 @@
-# Turborepo starter
+# React Slides
 
-This Turborepo starter is maintained by the Turborepo core team.
+A modern presentation framework for developers who love React. Create beautiful, interactive presentations with the power of React components and smooth view transitions.
 
-## Using this example
+## 🚀 Features
 
-Run the following command:
+- **React-Powered** - Build your slides using familiar React components
+- **Effortless Animations** - Smooth view transitions between slides
+- **Developer-Friendly** - Write your content in Markdown or JSX
+- **Themable** - Customize the look and feel to match your style
+- **Interactive** - Add interactive demos using React components
 
-```sh
-npx create-turbo@latest
-```
+## 📦 Packages
 
-## What's inside?
+This monorepo contains the following packages:
 
-This Turborepo includes the following packages/apps:
+### `@repo/slides`
+The core slides package containing React components and utilities for creating presentations.
 
-### Apps and Packages
+### `apps/web`
+A Next.js web application that serves as the main interface for creating and viewing presentations.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## 🛠️ Getting Started
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Jared-MB/react-slides.git
+   cd react-slides
+   ```
 
-### Utilities
+2. **Install dependencies**
+   ```bash
+   # Using pnpm (recommended)
+   pnpm install
+   
+   # Or using yarn
+   yarn install
+   ```
 
-This Turborepo has some additional tools already setup for you:
+3. **Start the development server**
+   ```bash
+   # Using pnpm
+   pnpm dev
+   
+   # Or using yarn
+   yarn dev
+   ```
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## 🎯 Creating Your First Presentation
 
-### Build
+1. Create a new file in the `apps/web/pages` directory (e.g., `my-presentation.tsx`)
+2. Use the `Slide` and `Presentation` components to create your slides
+3. Run the development server and navigate to `http://localhost:3000/my-presentation`
 
-To build all apps and packages, run the following command:
+## 📚 Documentation
 
-```
-cd my-turborepo
+For detailed documentation, please visit our [documentation site](https://your-docs-site.com).
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+## 🤝 Contributing
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
+Contributions are always welcome! Please read our [contributing guide](CONTRIBUTING.md) to get started.
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 📄 License
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
