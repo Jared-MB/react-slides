@@ -1,0 +1,30 @@
+{
+	"name": "@repo/slides",
+	"type": "module",
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc"
+	},
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"peerDependencies": {
+		"next": "^15",
+		"react": "^19",
+		"react-dom": "^19"
+	},
+	"dependencies": {
+		"lucide-react": "0.525.0",
+		"zustand": "5.0.6"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "workspace:*",
+		"@types/node": "^22.15.3",
+		"@types/react": "19.1.0",
+		"@types/react-dom": "19.1.1",
+		"typescript": "latest"
+	}
+}
