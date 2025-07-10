@@ -1,5 +1,11 @@
 # presivio
 
+## 1.0.2
+
+### Patch Changes
+
+- 3474f69: fix: fadein fadeout at change slides
+
 ## 1.0.1
 
 ### Patch Changes
