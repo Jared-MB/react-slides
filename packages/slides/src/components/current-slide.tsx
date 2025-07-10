@@ -16,7 +16,7 @@ export function CurrentSlide() {
 	}
 
 	return (
-		<ViewTransition name={currentSlide.name}>
+		<ViewTransition name="current-slide">
 			<div className="h-full">{currentSlide.component}</div>
 		</ViewTransition>
 	);
