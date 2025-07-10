@@ -3,21 +3,25 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import { CheckIcon, CopyIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, startTransition } from "react";
+import { ViewTransition } from "presivio";
 
 export function Copy({ text }: { text: string }) {
 	const [isCopied, setIsCopied] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
 
-	const copy = () => {
-		navigator.clipboard.writeText(text);
-		setIsCopied(true);
-		setIsHovered(true);
-		setTimeout(() => {
-			setIsCopied(false);
-			setIsHovered(false);
-		}, 4000);
-	};
+	const copy = () =>
+		startTransition(() => {
+			navigator.clipboard.writeText(text);
+			setIsCopied(true);
+			setIsHovered(true);
+			setTimeout(() => {
+				startTransition(() => {
+					setIsCopied(false);
+					setIsHovered(false);
+				});
+			}, 4000);
+		});
 
 	return (
 		<Tooltip open={isHovered} onOpenChange={setIsHovered}>
@@ -28,7 +32,9 @@ export function Copy({ text }: { text: string }) {
 					className="hover:bg-card"
 					onClick={copy}
 				>
-					{isCopied ? <CheckIcon /> : <CopyIcon />}
+					<ViewTransition name="icon">
+						{isCopied ? <CheckIcon /> : <CopyIcon />}
+					</ViewTransition>
 				</Button>
 			</TooltipTrigger>
 			<TooltipContent>
