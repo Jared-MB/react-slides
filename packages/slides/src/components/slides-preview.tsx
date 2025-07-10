@@ -14,16 +14,20 @@ export function SlidesPreview() {
 		return null;
 	}
 
+	if (!slides) {
+		return null;
+	}
+
 	return (
 		<SlidesProvider>
-			<aside className="h-dvh overflow-y-auto">
+			<aside className="overflow-y-auto">
 				{slides?.map((slide, index) => (
 					<Link
 						href={`/${index + 1}`}
 						key={slide.name}
-						className="overflow-hidden w-full aspect-video border border-gray-300 inline-block"
+						className="overflow-hidden w-full aspect-video border bg-zinc-800 border-gray-300 inline-block"
 					>
-						{slide.component}
+						{slide?.component ?? null}
 						<small>{index + 1}</small>
 					</Link>
 				))}

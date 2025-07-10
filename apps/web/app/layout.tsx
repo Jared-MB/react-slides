@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/sonner";
+import { Header } from "@/components/header";
 import "./globals.css";
-import { Presentation } from "presivio";
-import { slides } from "./slides";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -28,7 +28,9 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} font-sans h-screen`}
 			>
-				<Presentation slides={slides}>{children}</Presentation>
+				<Header />
+				{children}
+				<Toaster />
 			</body>
 		</html>
 	);

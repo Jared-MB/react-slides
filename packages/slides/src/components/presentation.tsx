@@ -22,7 +22,7 @@ export function Presentation({
 
 	return (
 		<div
-			className={`grid ${isFullScreen ? "grid-cols-1" : "grid-cols-[25%_1fr]"}`}
+			className={`h-full grid ${isFullScreen ? "grid-cols-1" : "grid-cols-[25%_1fr]"}`}
 		>
 			<SlidesPreview />
 			{children}

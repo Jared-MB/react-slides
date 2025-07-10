@@ -3,23 +3,14 @@ import { Slide, ViewTransition } from "presivio";
 export function Slide1() {
 	return (
 		<Slide>
-			<div>
-				<ViewTransition name="slide-title">Slide 1 Content</ViewTransition>
-				<ViewTransition name="square-1">
-					<div className="size-12 bg-purple-500" />
-				</ViewTransition>
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
-				<ViewTransition name="square-2">
-					<div className="size-20 bg-purple-500" />
-				</ViewTransition>
-				<div className="size-12 bg-purple-500" />
-				<div className="size-12 bg-purple-500" />
+			<div className="grid place-content-center h-full">
+				<h2 className="text-white text-4xl">
+					What is <br />
+					<ViewTransition name="slide-title">
+						<strong className="font-mono text-6xl">Presivio</strong>
+					</ViewTransition>
+					?
+				</h2>
 			</div>
 		</Slide>
 	);

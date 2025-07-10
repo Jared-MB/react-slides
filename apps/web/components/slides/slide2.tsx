@@ -3,13 +3,16 @@ import { Slide, ViewTransition } from "presivio";
 export function Slide2() {
 	return (
 		<Slide>
-			<div className="flex items-end justify-between flex-col w-full h-full">
-				<ViewTransition name="square-1">
-					<div className="size-12 bg-purple-500" />
-				</ViewTransition>
-				<ViewTransition name="square-2">
-					<div className="size-12 bg-purple-500" />
-				</ViewTransition>
+			<div className="grid place-content-center h-full">
+				<h2 className="text-white text-4xl mb-4">
+					<ViewTransition name="slide-title">
+						<strong className="font-mono text-6xl">Presivio</strong>
+					</ViewTransition>
+				</h2>
+				<p className="text-white text-2xl text-pretty max-w-[48ch]">
+					A simple and easy to use library to create interactive slides with
+					React for developers.
+				</p>
 			</div>
 		</Slide>
 	);

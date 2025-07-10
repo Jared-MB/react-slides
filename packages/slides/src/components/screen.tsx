@@ -27,7 +27,7 @@ export function Screen() {
 	}, []);
 
 	return (
-		<div className="w-full h-dvh bg-zinc-800 relative grid grid-rows-[1fr_2rem]">
+		<div className="w-full bg-zinc-800 relative grid grid-rows-[1fr_2rem]">
 			<main>
 				<CurrentSlide />
 			</main>
