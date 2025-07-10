@@ -22,7 +22,14 @@
 			"a11y": {
 				"noPositiveTabindex": "off"
 			}
-		}
+		},
+		"includes": [
+			"**/src/**/*.tsx",
+			"**/src/**/*.ts",
+			"!node_modules/**",
+			"!dist/**",
+			"!.next/**"
+		]
 	},
 	"javascript": {
 		"formatter": {

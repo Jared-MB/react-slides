@@ -1,24 +1,25 @@
 {
-  "name": "react-slides",
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.0.6",
-    "prettier": "^3.6.0",
-    "turbo": "^2.5.4",
-    "typescript": "5.8.2"
-  },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
-  },
-  "dependencies": {
-    "@changesets/cli": "^2.29.5"
-  }
+	"name": "react-slides",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "biome lint",
+		"format": "biome format --write",
+		"check-types": "turbo run check-types",
+		"publish-packages": "turbo run build && changeset version && changeset publish"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.0.6",
+		"prettier": "^3.6.0",
+		"turbo": "^2.5.4",
+		"typescript": "5.8.2"
+	},
+	"packageManager": "pnpm@9.0.0",
+	"engines": {
+		"node": ">=18"
+	},
+	"dependencies": {
+		"@changesets/cli": "^2.29.5"
+	}
 }
