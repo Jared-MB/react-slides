@@ -1,5 +1,11 @@
 # presivio
 
+## 1.1.0
+
+### Minor Changes
+
+- 779ee92: feat: set slides preview as optional
+
 ## 1.0.2
 
 ### Patch Changes

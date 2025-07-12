@@ -1,5 +1,12 @@
 # web
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [779ee92]
+  - presivio@1.1.0
+
 ## 0.1.3
 
 ### Patch Changes
