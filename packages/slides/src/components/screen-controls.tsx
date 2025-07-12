@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight, Expand, Shrink } from "lucide-react";
 import { useFullScreen } from "../hooks/useFullScreen";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useSlides } from "../stores/slides.store";
 import { ViewTransition } from "./view-transition";
+import { usePresentation } from "../providers/presentation-provider";
 
 export function SetFullScreen() {
 	const { setFullScreen, exitFullScreen, isFullScreen } = useFullScreen();
@@ -29,7 +29,7 @@ export function SetFullScreen() {
 export function MoveOnSlides() {
 	const params = useParams();
 	const router = useRouter();
-	const { slides } = useSlides();
+	const { slides } = usePresentation();
 
 	const totalSlides = slides.length;
 	const currentSlide = Number(params.slide);
@@ -43,14 +43,12 @@ export function MoveOnSlides() {
 	};
 
 	const goForward = () => {
-		console.log({ currentSlide, totalSlides });
 		if (!canMoveForward) return;
 		router.replace(`/${currentSlide + 1}`);
 	};
 
 	useEffect(() => {
 		const keydownHandler = (event: KeyboardEvent) => {
-			console.log(event.key);
 			if (event.key === "ArrowLeft") {
 				goBack();
 			} else if (event.key === "ArrowRight") {

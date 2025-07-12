@@ -1,12 +1,12 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useSlides } from "../stores/slides.store";
 import { ViewTransition } from "./view-transition";
+import { usePresentation } from "../providers/presentation-provider";
 
 export function CurrentSlide() {
 	const params = useParams();
-	const { slides } = useSlides();
+	const { slides } = usePresentation();
 
 	const slideNumber = Number(params.slide);
 	const currentSlide = slides[slideNumber - 1];

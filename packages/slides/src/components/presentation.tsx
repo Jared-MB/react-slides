@@ -1,30 +1,16 @@
 "use client";
 
-import { useSlides, type Slide } from "../stores/slides.store";
-
 import { useFullScreen } from "../hooks/useFullScreen";
-import { SlidesPreview } from "./slides-preview";
-import { useEffect } from "react";
+import { usePresentation } from "../providers/presentation-provider";
 
-export function Presentation({
-	children,
-	slides,
-}: {
-	children: React.ReactNode;
-	slides: Slide[];
-}) {
+export function PresentationView({ children }: { children: React.ReactNode }) {
 	const { isFullScreen } = useFullScreen();
-	const { setSlides } = useSlides();
-
-	useEffect(() => {
-		setSlides(slides);
-	}, [slides]);
+	const { preview } = usePresentation();
 
 	return (
 		<div
-			className={`h-full grid ${isFullScreen ? "grid-cols-1" : "grid-cols-[25%_1fr]"}`}
+			className={`h-full max-h-dvh grid ${isFullScreen || !preview.isPreview ? "grid-cols-1" : "grid-cols-[25%_1fr]"}`}
 		>
-			<SlidesPreview />
 			{children}
 		</div>
 	);
