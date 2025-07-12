@@ -1,4 +1,4 @@
-import { Presentation } from "presivio";
+import { Presentation, SlidesPreview } from "presivio";
 import { slides } from "../slides";
 
 export default function SlidesLayout({
@@ -6,5 +6,10 @@ export default function SlidesLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	return <Presentation slides={slides}>{children}</Presentation>;
+	return (
+		<Presentation slides={slides}>
+			<SlidesPreview />
+			{children}
+		</Presentation>
+	);
 }

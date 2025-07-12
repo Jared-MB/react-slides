@@ -26,7 +26,7 @@ export function Slide3_2() {
 					</ViewTransition>
 				</h4>
 				<div className="flex gap-8 items-center">
-					<ViewTransition name="copy">
+					<ViewTransition name="copy-code">
 						<CopyCode />
 					</ViewTransition>
 					<div className="flex flex-col gap-2 text-white">

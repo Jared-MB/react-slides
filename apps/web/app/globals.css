@@ -130,3 +130,41 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+* {
+	scroll-behavior: smooth;
+}
+
+::view-transition-old(.counter) {
+	animation-name: counter-out;
+	animation-duration: 100ms;
+	animation-timing-function: ease-in-out;
+}
+
+::view-transition-new(.counter) {
+	animation-name: counter-in;
+	animation-duration: 100ms;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes counter-out {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes counter-in {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
