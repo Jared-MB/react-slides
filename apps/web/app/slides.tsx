@@ -1,3 +1,5 @@
+import type { Slide } from "presivio/types";
+
 import { Slide1 } from "@/components/slides/slide1";
 import { Slide2 } from "@/components/slides/slide2";
 import { Slide3 } from "@/components/slides/slide3";
@@ -10,7 +12,7 @@ import { Slide7 } from "@/components/slides/slide7";
 import { Slide8 } from "@/components/slides/slide8";
 import { Slide9 } from "@/components/slides/slide9";
 
-export const slides = [
+export const slides: Slide[] = [
 	{
 		name: "slide-1",
 		component: <Slide1 />,

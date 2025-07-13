@@ -1,6 +1,9 @@
 import { CodeBlock } from "@/components/code-block";
 import { CopyCode } from "@/components/copy-code";
+import Layouts from "@/components/layouts";
+import { PageTitle } from "@/components/page-title";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Titles from "@/components/ui/titles";
 import { AlertCircleIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -16,9 +19,11 @@ module.exports = nextConfig
 
 export default function InstallationPage() {
 	return (
-		<main className="space-y-8">
+		<Layouts.Docs>
 			<div className="flex flex-col gap-4">
-				<h2 className="text-4xl font-bold font-mono">Installation</h2>
+				<PageTitle>
+					<span>Installation</span>
+				</PageTitle>
 				<CopyCode />
 			</div>
 			<div className="flex flex-col gap-2">
@@ -80,6 +85,6 @@ export default function InstallationPage() {
 					</AlertDescription>
 				</Alert>
 			</div>
-		</main>
+		</Layouts.Docs>
 	);
 }

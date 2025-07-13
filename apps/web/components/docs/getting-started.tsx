@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 
-const navigation = [
+export const gettingStartedPages = [
 	{
 		name: "Introduction",
 		href: "/docs",
@@ -16,6 +16,10 @@ const navigation = [
 	{
 		name: "Installation",
 		href: "/docs/installation",
+	},
+	{
+		name: "Usage",
+		href: "/docs/usage",
 	},
 ];
 
@@ -25,7 +29,7 @@ export function GettingStarted() {
 			<SidebarGroupLabel>Getting started</SidebarGroupLabel>
 			<SidebarGroupContent>
 				<SidebarMenu>
-					{navigation.map((item) => (
+					{gettingStartedPages.map((item) => (
 						<SidebarMenuItem key={item.name}>
 							<SidebarMenuButton asChild>
 								<Link href={item.href}>{item.name}</Link>

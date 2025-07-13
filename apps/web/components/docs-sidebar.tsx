@@ -3,7 +3,8 @@ import {
 	SidebarContent,
 	SidebarProvider,
 } from "@/components/ui/sidebar";
-import { GettingStarted } from "./docs/getting-started";
+import { GettingStarted, gettingStartedPages } from "./docs/getting-started";
+import { ApiReference, apiReferencePages } from "./docs/api-reference";
 
 export function DocsSidebar() {
 	return (
@@ -11,8 +12,11 @@ export function DocsSidebar() {
 			<Sidebar>
 				<SidebarContent>
 					<GettingStarted />
+					<ApiReference />
 				</SidebarContent>
 			</Sidebar>
 		</SidebarProvider>
 	);
 }
+
+export const pages = [...gettingStartedPages, ...apiReferencePages];
