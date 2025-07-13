@@ -1,5 +1,11 @@
 # presivio
 
+## 1.1.1
+
+### Patch Changes
+
+- 431cc99: fix: add Slide type to export on presivio/types entry point
+
 ## 1.1.0
 
 ### Minor Changes
